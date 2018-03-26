@@ -1,0 +1,7 @@
+<?jelly escape-by-default='true'?>
+<!--
+  This view is used to render the installed plugins page.
+-->
+<div>
+  VCE created plugin that allows the creation of Rally Defects utilizing VCE custom fields.
+</div>

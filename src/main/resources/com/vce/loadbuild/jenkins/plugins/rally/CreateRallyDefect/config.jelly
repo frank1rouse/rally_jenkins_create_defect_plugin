@@ -1,0 +1,65 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+  <!--
+    This jelly script is used for per-project configuration.
+
+    See global.jelly for a general discussion about jelly script.
+  -->
+
+  <!--
+    Creates a text field that shows the value of the "name" property.
+    When submitted, it will be passed to the corresponding constructor parameter.
+    Defaults are included here as this file is only read the first time the config window is open. Subsequent changes
+    to the values will be preserved between sessions.
+  -->
+    <f:entry name="createDefectIfUnstable" title="Create Defect if Build Unstable" field="createDefectIfUnstable"
+      description="Check if defect should be created when build is unstable.">
+      <f:checkbox />
+    </f:entry>
+
+    <f:entry name="Project" title="Project" field="project">
+        <f:select default="Build Release Management (SCM)"/>
+    </f:entry>
+
+    <f:entry name="Priority" title="Priority" field="priority">
+        <f:select default="Resolve Immediately"/>
+    </f:entry>
+
+    <f:entry name="Severity" title="Severity" field="severity">
+        <f:select default="Major Problem"/>
+    </f:entry>
+
+    <f:entry title="Submitted By" field="submittedBy"
+        description="Submitted By user id must have permission to create a defect in the Project field shown above.">
+        <f:textbox value="pebuildrelease@vce.com"/>
+    </f:entry>
+
+    <f:entry name="defectCategory" title="Defect Category" field="defectCategory">
+        <f:select default="Automation:Jenkins"/>
+    </f:entry>
+
+    <f:entry name="defectType" title="Defect Type" field="defectType">
+        <f:select default="Defect"/>
+    </f:entry>
+
+    <f:entry name="Found In Version" title="Found In Version" field="foundInVersion">
+        <f:select default="Trunk"/>
+    </f:entry>
+
+    <f:entry name="whereFound" title="Where Found" field="whereFound">
+        <f:select default="VCE - Automation"/>
+    </f:entry>
+
+    <f:entry name="whereIntroduced" title="Where Introduced" field="whereIntroduced">
+        <f:select default="SW Design"/>
+    </f:entry>
+
+    <f:entry name="methodToIdentifySimilarDefects" title="Method to Identify Similar Defects" field="methodToIdentifySimilarDefects">
+        <f:select default="N&#47;A"/>
+    </f:entry>
+
+    <f:entry title="Title Prefix" field="titlePrefix"
+        description="Optional text prefix to the title of the defect. Typically [Vision] or [Symphony]">
+        <f:textbox/>
+    </f:entry>
+</j:jelly>
